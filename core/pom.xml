@@ -87,10 +87,30 @@
             <artifactId>scrypt</artifactId>
             <version>1.4.0</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.bitcoinj</groupId>-->
+<!--            <artifactId>bitcoinj-core</artifactId>-->
+<!--            <version>0.14.2</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.bitcoinj</groupId>
             <artifactId>bitcoinj-core</artifactId>
-            <version>0.14.2</version>
+            <version>0.15</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.madgag.spongycastle</groupId>
+            <artifactId>core</artifactId>
+            <version>1.58.0.0</version>
         </dependency>
     </dependencies>
     <properties>

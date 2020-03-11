@@ -17,6 +17,7 @@
 
 package com.dogecoin.dogecoinj.protocols.payments;
 
+import com.google.common.base.MoreObjects;
 import org.bitcoinj.core.*;
 import org.bitcoinj.crypto.X509Utils;
 import org.bitcoinj.script.ScriptBuilder;
@@ -270,7 +271,7 @@ public class PaymentProtocol {
 
         @Override
         public String toString() {
-            return Objects.toStringHelper(this)
+            return MoreObjects.toStringHelper(this)
                     .add("displayName", displayName)
                     .add("rootAuthorityName", rootAuthorityName)
                     .add("merchantSigningKey", merchantSigningKey)

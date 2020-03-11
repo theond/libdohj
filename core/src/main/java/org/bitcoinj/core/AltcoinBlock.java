@@ -30,7 +30,7 @@ import java.util.BitSet;
 import java.util.List;
 import static org.bitcoinj.core.Coin.FIFTY_COINS;
 
-import org.libdohj.core.ScryptHash;
+//import org.libdohj.core.ScryptHash;
 import static org.libdohj.core.Utils.scryptDigest;
 
 import static org.bitcoinj.core.Utils.reverseBytes;
@@ -61,7 +61,7 @@ public class AltcoinBlock extends org.bitcoinj.core.Block {
      */
     private boolean auxpowChain = false;
 
-    private ScryptHash scryptHash;
+    private Sha256Hash scryptHash;
 
     /** Special case constructor, used for the genesis node, cloneAsHeader and unit tests.
      * @param params NetworkParameters object.
@@ -113,11 +113,12 @@ public class AltcoinBlock extends org.bitcoinj.core.Block {
         super(params, version, prevBlockHash, merkleRoot, time, difficultyTarget, nonce, transactions);
     }
 
-    private ScryptHash calculateScryptHash() {
+    private Sha256Hash calculateScryptHash() {
         try {
             ByteArrayOutputStream bos = new UnsafeByteArrayOutputStream(HEADER_SIZE);
             writeHeader(bos);
-            return new ScryptHash(reverseBytes(scryptDigest(bos.toByteArray())));
+//            return new ScryptHash(reverseBytes(scryptDigest(bos.toByteArray())));
+            return Sha256Hash.wrap(reverseBytes(scryptDigest(bos.toByteArray())));
         } catch (IOException e) {
             throw new RuntimeException(e); // Cannot happen.
         } catch (GeneralSecurityException e) {
@@ -137,7 +138,7 @@ public class AltcoinBlock extends org.bitcoinj.core.Block {
      * Returns the Scrypt hash of the block (which for a valid, solved block should be
      * below the target). Big endian.
      */
-    public ScryptHash getScryptHash() {
+    public Sha256Hash getScryptHash() {
         if (scryptHash == null)
             scryptHash = calculateScryptHash();
         return scryptHash;
