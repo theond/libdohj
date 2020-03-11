@@ -1,3 +1,5 @@
+升级到bitcoinj 0.15版本，验证了地址生成
+
 [![Build Status](https://travis-ci.org/dogecoin/libdohj.svg?branch=master)](https://travis-ci.org/dogecoin/libdohj)
 
 ### Welcome to libdohj
